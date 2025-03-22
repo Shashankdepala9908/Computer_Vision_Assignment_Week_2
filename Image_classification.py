@@ -75,3 +75,32 @@ plt.imshow(train_data[0])
 plt.title(f"Sample Image - Class {train_labels[0]}")
 plt.axis("off")
 plt.show()
+
+
+
+
+
+
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+
+# Convert dataset objects to NumPy arrays
+X_train = np.array([np.array(img) for img in trainset.data])
+y_train = np.array(trainset.labels)
+
+X_test = np.array([np.array(img) for img in testset.data])
+y_test = np.array(testset.labels)
+
+# Flatten images (assuming 32x32x3 images)
+X_train = X_train.reshape(len(X_train), -1)
+X_test = X_test.reshape(len(X_test), -1)
+
+# Train SVM classifier
+svm = SVC(kernel='linear')
+svm.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred_svm = svm.predict(X_test)
+svm_accuracy = accuracy_score(y_test, y_pred_svm)
+
+print(f"SVM Accuracy: {svm_accuracy:.4f}")
