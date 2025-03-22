@@ -177,7 +177,7 @@ with torch.no_grad():
 
 print(f"Neural Network Accuracy: {nn_accuracy:.4f}")
 
-# Compare classifier accuracies
+# Comparation of classifier accuracies
 print(f"SVM Accuracy: {svm_accuracy:.4f}")
 print(f"Softmax Accuracy: {softmax_accuracy:.4f}")
 print(f"Neural Network Accuracy: {nn_accuracy:.4f}")
@@ -185,5 +185,5 @@ print(f"Neural Network Accuracy: {nn_accuracy:.4f}")
 # Plot performance comparison
 plt.bar(["SVM", "Softmax", "Neural Network"], [svm_accuracy, softmax_accuracy, nn_accuracy])
 plt.ylabel("Accuracy")
-plt.title("Classifier Comparison")
+plt.title("Classifier Comparison of the CIFAR-10 Subset")
 plt.show()
